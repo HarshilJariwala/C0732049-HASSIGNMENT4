@@ -24,8 +24,8 @@ namespace C0732049_Assignment4
 
 
             Console.ReadLine();
-
-        }
+ 
+        }  
 
         public void Run()
 
