@@ -20,6 +20,8 @@ namespace C0732049_Assignment4
 
             p.ReadTextFiles();
             p.WordCounter();
+            p.find();
+            p.skipp();
             Console.ReadLine();
 
         }  
@@ -64,7 +66,6 @@ namespace C0732049_Assignment4
 
         }
         public void WordCounter()
-
         {
             StreamReader reader = new StreamReader("Beowulf.txt");
             string script = reader.ReadToEnd();
@@ -82,6 +83,39 @@ namespace C0732049_Assignment4
                     index++;
             }
             Console.WriteLine("File has "+wordCount+" word.");
+        }
+        public void find()
+        {
+            int f = 0;
+            foreach (var line in File.ReadAllLines("Beowulf.txt"))
+            {
+                f++;
+                if (line.Contains("sea") && line.Contains("fare"))
+                {
+                    Console.WriteLine("The line " + f + " contains both sea and Fare");
+                }
+            }
+            
+                
+        }
+
+        public void skipp()
+        {
+            int x = 0, y = 0, z =0;
+  
+            foreach (var line in File.ReadAllLines("Beowulf.txt"))
+            {
+                if (line.Contains("fare") && line.Contains("war"))
+                {
+                    if (line.Contains("war") && line.Contains("fare"))
+                    {
+                        y++;
+                    }
+                }
+            }
+
+          
+
         }
     }
 }
