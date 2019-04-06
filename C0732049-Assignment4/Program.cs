@@ -86,17 +86,17 @@ namespace C0732049_Assignment4
         }
         public void find()
         {
-            int f = 0;
+            int x = 0;
             foreach (var line in File.ReadAllLines("Beowulf.txt"))
             {
-                f++;
+                x++;
                 if (line.Contains("sea") && line.Contains("fare"))
                 {
-                    Console.WriteLine("The line " + f + " contains both sea and Fare");
+                    Console.WriteLine("The line " + x + " contains both sea and Fare");
                 }
             }
-            
-                
+
+            Console.WriteLine("\n\n\n");
         }
 
         public void skipp()
@@ -105,17 +105,23 @@ namespace C0732049_Assignment4
   
             foreach (var line in File.ReadAllLines("Beowulf.txt"))
             {
+                x++;
+                
                 if (line.Contains("fare") && line.Contains("war"))
                 {
-                    if (line.Contains("war") && line.Contains("fare"))
-                    {
-                        y++;
-                    }
+                    Console.WriteLine("The line " + x + " contains both sea and Fare");
                 }
             }
 
           
 
+        }
+
+        public void Float()
+        {
+            StreamReader reader = new StreamReader("Beowulf.txt");
+            String read = reader.ReadToEnd();
+            int letters = 0;
         }
     }
 }
