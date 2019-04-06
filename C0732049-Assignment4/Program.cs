@@ -12,7 +12,6 @@ namespace C0732049_Assignment4
     {
         ArrayList Beowulf;
 
-
         static void Main(string[] args)
         {
             Program p = new Program();
@@ -20,7 +19,9 @@ namespace C0732049_Assignment4
             p.Beowulf = new ArrayList();
 
             p.ReadTextFiles();
+            p.WordCounter();
             Console.ReadLine();
+
         }  
 
         public void Run()
@@ -34,16 +35,15 @@ namespace C0732049_Assignment4
             {
                 int counter = 0;
                 string ln;
-                int wordCount = 0;
+
                 while ((ln = file.ReadLine()) != null)
                 {
                     Console.WriteLine(ln);
                     Beowulf.Add(ln);
                 }
-               
+
                 counter = File.ReadLines("Beowulf.txt").Count();
                 Console.WriteLine("\n\n\nFile has "+counter+" lines.");
-                Console.WriteLine("File has " + wordCount + " Words.");
                 file.Close();
             }
 
@@ -51,8 +51,7 @@ namespace C0732049_Assignment4
 
         public int FindNumberOfBlankSpaces(string line)
         {
-            https://stackoverflow.com/questions/17812566/count-words-and-spaces-in-string-c-sharp
-
+                                                                                                                                                                                                                                                                                                                                                                                                   
             int countletters = 0;
             int countSpaces = 0;
 
@@ -63,6 +62,26 @@ namespace C0732049_Assignment4
             }
             return countSpaces;
 
+        }
+        public void WordCounter()
+
+        {
+            StreamReader reader = new StreamReader("Beowulf.txt");
+            string script = reader.ReadToEnd();
+
+            var text = script.Trim();
+           int wordCount = 0;
+           int index = 0;
+
+            while (index < text.Length)
+            {
+                while (index < text.Length && !char.IsWhiteSpace(text[index]))
+                    index++;
+                wordCount++;
+                while (index < text.Length && char.IsWhiteSpace(text[index]))
+                    index++;
+            }
+            Console.WriteLine("File has "+wordCount+" word.");
         }
     }
 }
